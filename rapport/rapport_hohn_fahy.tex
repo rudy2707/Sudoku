@@ -90,9 +90,14 @@ La classe \textit{SudoKiller} étant abstraite, nous avons du définir une class
 Ce Design Pattern nous permettrait de, par exemple, utiliser d'autres algorithmes de résolution de Sudoku sans devoir changer notre code de jeu, il faudrait juste rajouter une fonction \textit{solverOther} où 'Other' serait l'autre algorithme.
 On comprend donc assez bien son utilité, elle permet de construire un lien entre deux programmes différents pour augmenter les capacités du premier.
 \newpage
-\section{Discussion}
 
-\section{TODO}
-Taille du tableau de board est 9 en dur dans le code
+\section{Discussion}
+Les Design Pattern nous ont apporté une bonne modularité du code, le jeu en lui-même n'est pas lié au traitement de sauvegardes et d'algorithmie.
+Ils sont vus comme des modules par le jeu.\\\\
+Grâce à l'Adapter, nous pourrions utiliser d'autres algorithmes de résolution et par exemple, faire des tests de performances entre les différents algorithmes.
+L'Adapter nous permet d'intégrer aisément du code externe sans avoir à modifier ni notre application, ni le code externe, il fait le lien entre les deux de manière transparente.\\\\
+A la fin de la partie, nous pourrions afficher tous les états qui ont amené à la résolution du Sudoku en implémentant un auter Design Pattern qui est l'Iterator.
+Ce dernier nous permettrait d'accéder à tous les états de manière séquentielle sans casser l'encapsulation.\\\\
+L'application pourrait être étendue en une version graphique, une version web ou une version mobile de manière à accéder sa partie de n'importe où et retrouver son état.
 
 \end{document}
