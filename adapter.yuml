@@ -1,0 +1,6 @@
+[SudokuSolver|+Sudoku solverKiller(Sudoku s);]^-.-[SodukuSolverAdapter|+Sudoku solverKiller(Sudoku s);]
+[SudokuGame|-savedStates]uses -.->[SodukuSolverAdapter]
+[SodukuSolverAdapter]<>->[CustomKiller|-SudokuBoard sb|+getBoard();]
+[CustomKiller|-SudokuBoard sb|+getBoard();]-^[SudoKiller]
+[CustomKiller]<>->[SudokuBoard]
+[SudoKiller]<>->[SudokuBoard]
