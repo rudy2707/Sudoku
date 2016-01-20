@@ -11,4 +11,4 @@ make run
 ```
 
 ## SudoKiller
-The algorithm of the Sudoku solver is from [here](http://www.kernel-panic.it/software/sudokiller/sudokiller.java.htm). This code is integrated in my Sudoku game with Adapter Design Pattern.
+The algorithm of the Sudoku solver is from [here](http://www.kernel-panic.it/software/sudokiller/sudokiller.java.html). This code is integrated in my Sudoku game with Adapter Design Pattern.
