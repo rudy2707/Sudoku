@@ -1,2 +1,2 @@
-[Originator|-state|+setMemento(Memento m);+createMemento()]-.-^[Memento|-state|+getState();+setState()]
+[Originator|-state|+saveToMemento();+restoreFromMemento(Memento m)]-.-^[Memento|-state|+getState();+setState()]
 [CareTaker]<>->[Memento|-state|+getState();+setState()]
