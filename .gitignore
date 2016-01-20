@@ -23,3 +23,6 @@ hs_err_pid*
 *.snm
 *.gz
 *.toc
+
+# Vim tmp files
+*.swp

@@ -76,13 +76,13 @@ Si l'utilisateur décide de revenir à un état précédent, il pourra revenir d
 \begin{center}
 \includegraphics[scale=0.7]{../diagrams/memento.png}
 \end{center}
-Ce Design Pattern apporte une gestion des états très simple à mettre en oeuvre.
+Ce Design Pattern apporte une gestion des états très simple à mettre en œuvre.
 Le \textit{Memento} est une classe opaque au jeu (ou \textit{Caretaker} dans la littérature), et c'est pour garder le principe d'encapsulation qu'on passe par l'\textit{Originator}.
 \newpage
 \subsection{Adapter}
-Le Design Adatper nous permet d'utiliser une fonction/algorithme provenant d'une autre classe sans devoir adapter notre code ou le code de l'algorithme pour se conformer à notre implémentation.
+Le Design Adapter nous permet d'utiliser une fonction/algorithme provenant d'une autre classe sans devoir adapter notre code ou le code de l'algorithme pour se conformer à notre implémentation.
 Dans notre cas, nous avions à disposition un résolveur de Sudoku, \textit{SudoKiller} qui, à partir d'un \textit{SudokuBoard}, résoud le Sudoku.
-Nous avons donc pour cela implémenter une classe \textit{SudokuSolverAdapter} qui reçoit un objet \textit{Sudoku}, extrait la grille, crée un objet \textit{SudokuBoard} et appelle une instance de \textit{CustomKiller} pour trouver la bonne réponse.
+Nous avons donc pour cela implémenté une classe \textit{SudokuSolverAdapter} qui reçoit un objet \textit{Sudoku}, extrait la grille, crée un objet \textit{SudokuBoard} et appelle une instance de \textit{CustomKiller} pour trouver la bonne réponse.
 La classe \textit{SudoKiller} étant abstraite, nous avons du définir une classe qui l'étend.
 \begin{center}
 \includegraphics[scale=0.7]{../diagrams/adapter.png}
