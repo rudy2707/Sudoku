@@ -1,2 +1,2 @@
-[Originator|-Sudoku state|+set(Sudoku s);+sateToMemento();+Sudoku restoreFromMemento(Memento m);]-.-^[Memento|-Sudoku state|+Sudoku getSaveState();]
+[Originator|-Sudoku state|+set(Sudoku s);+saveToMemento();+Sudoku restoreFromMemento(Memento m);]-.-^[Memento|-Sudoku state|+Sudoku getSaveState();]
 [SudokuGame|-List\<Originator.Memento\> savedStates]<>->[Memento]
