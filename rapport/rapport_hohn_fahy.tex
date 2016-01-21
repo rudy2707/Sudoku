@@ -64,12 +64,12 @@ L'utilisateur peut jouer au Sudoku suivant les règles standardes pour une grill
 Le jeu se fait en ligne de commande, à chaque tour, on demande à l'utilisateur s'il veut continuer ou arrêter le jeu,
 s'il veut utiliser un code de triche ou revenir dans un état précédent et dans quelle case veut-il placer le nouveau numéro.
 \\\\
-Pour la partie triche et mémoire du jeu, nous avons utilisé les Design Pattern Adapter et Memento.
+Pour la partie triche et mémoire du jeu, nous avons utilisé les Design Pattern \textit{Adapter} et \textit{Memento}.
 
 \section{Description des Design Patterns}
 
 \subsection{Memento}
-Le Design Pattern Memento nous sert à mémoriser les précédents états du jeu, c'est-à-dire, des états de notre \textit{Sudoku}.
+Le Design Pattern Memento nous sert à mémoriser les précédents états du jeu, c'est-à-dire, les états de notre \textit{Sudoku}.
 Dans la classe \textit{SudokuGame}, nous avons une liste de \textit{Memento} où chaque instance sera un état du jeu, et un objet \textit{Originator} qui connaitra l'état actuel du jeu.
 Seul l'\textit{Originator} peut aller lire ou modifier un état du jeu, soit un \textit{Memento}.\\\\
 Si l'utilisateur décide de revenir à un état précédent, il pourra revenir d'autant de coups qu'il veut, et s'il est allé trop en arrière, il pourra revenir dans le temps (retour vers le futur, mais sans Dolorean).
@@ -78,25 +78,26 @@ Si l'utilisateur décide de revenir à un état précédent, il pourra revenir d
 \end{center}
 Ce Design Pattern apporte une gestion des états très simple à mettre en œuvre.
 Le \textit{Memento} est une classe opaque au jeu (ou \textit{Caretaker} dans la littérature), et c'est pour garder le principe d'encapsulation qu'on passe par l'\textit{Originator}.
-\newpage
+% \newpage
 \subsection{Adapter}
-Le Design Adapter nous permet d'utiliser une fonction/algorithme provenant d'une autre classe sans devoir adapter notre code ou le code de l'algorithme pour se conformer à notre implémentation.
+Le Design \textit{Adapter} nous permet d'utiliser une fonction/algorithme provenant d'une autre classe sans devoir adapter notre code ou le code de l'algorithme pour se conformer à notre implémentation.
 Dans notre cas, nous avions à disposition un résolveur de Sudoku, \textit{SudoKiller} qui, à partir d'un \textit{SudokuBoard}, résoud le Sudoku.
-Nous avons donc pour cela implémenté une classe \textit{SudokuSolverAdapter} qui reçoit un objet \textit{Sudoku}, extrait la grille, crée un objet \textit{SudokuBoard} et appelle une instance de \textit{CustomKiller} pour trouver la bonne réponse.
+Nous avons donc pour cela écrit une classe \textit{SudokuKillerAdapter}, implémentée depuis l'interface \textit{SudokuSolver}. Elle reçoit un objet \textit{Sudoku}, extrait la grille, crée un objet \textit{SudokuBoard} et appelle une instance de \textit{CustomKiller} pour trouver la bonne réponse.
 La classe \textit{SudoKiller} étant abstraite, nous avons du définir une classe qui l'étend.
 \begin{center}
 \includegraphics[scale=0.7]{../diagrams/adapter.png}
 \end{center}
-Ce Design Pattern nous permettrait de, par exemple, utiliser d'autres algorithmes de résolution de Sudoku sans devoir changer notre code de jeu, il faudrait juste rajouter une fonction \textit{solverOther} où 'Other' serait l'autre algorithme.
+Ce Design Pattern nous permettrait de, par exemple, utiliser d'autres algorithmes de résolution de Sudoku sans devoir changer notre code de jeu, il faudrait juste implémenter une classe qui implémente l'interface \textit{SudokuSolver}.
 On comprend donc assez bien son utilité, elle permet de construire un lien entre deux programmes différents pour augmenter les capacités du premier.
 \newpage
 
 \section{Discussion}
 Les Design Pattern nous ont apporté une bonne modularité du code, le jeu en lui-même n'est pas lié au traitement de sauvegardes et d'algorithmie.
 Ils sont vus comme des modules par le jeu.\\\\
-Grâce à l'Adapter, nous pourrions utiliser d'autres algorithmes de résolution et par exemple, faire des tests de performances entre les différents algorithmes.
-L'Adapter nous permet d'intégrer aisément du code externe sans avoir à modifier ni notre application, ni le code externe, il fait le lien entre les deux de manière transparente.\\\\
-A la fin de la partie, nous pourrions afficher tous les états qui ont amené à la résolution du Sudoku en implémentant un auter Design Pattern qui est l'Iterator.
+Si notre objet Sudoku était immutable, nous pourrions nous passer du Design Pattern \textit{Memento} car nous devrions de toute façon instancier un nouveau Sudoku à chaque nouveau mouvement.\\\\
+Grâce à l'\textit{Adapter}, nous pourrions utiliser d'autres algorithmes de résolution et par exemple, faire des tests de performances entre les différents algorithmes.
+L'\textit{Adapter} nous permet d'intégrer aisément du code externe sans avoir à modifier ni notre application, ni le code externe, il fait le lien entre les deux de manière transparente.\\\\
+A la fin de la partie, nous pourrions afficher tous les états qui ont amené à la résolution du Sudoku en implémentant un autre Design Pattern qui est l'\textit{Iterator}.
 Ce dernier nous permettrait d'accéder à tous les états de manière séquentielle sans casser l'encapsulation.\\\\
 L'application pourrait être étendue en une version graphique, une version web ou une version mobile de manière à accéder sa partie de n'importe où et retrouver son état.
 

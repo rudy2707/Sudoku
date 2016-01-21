@@ -1,7 +1,6 @@
 package sudoku;
-// Interface
 
 public interface SudokuSolver {
-
-    public Sudoku solverKiller(Sudoku sudoku);
+    
+    public Sudoku solver(Sudoku sudoku);
 }

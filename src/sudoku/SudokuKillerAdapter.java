@@ -2,19 +2,19 @@ package sudoku;
 
 import java.util.*;
 
-class SudokuSolverAdapter implements SudokuSolver {
+class SudokuKillerAdapter implements SudokuSolver {
 
-    public SudokuSolverAdapter () {
+    public SudokuKillerAdapter () {
         // Constructor
     }
 
     @Override
-    public Sudoku solverKiller(Sudoku sudoku) {
+    public Sudoku solver(Sudoku sudoku) {
         SudokuBoard sb = new SudokuBoard(sudoku.getBoard());
-        CustomKiller sk = new CustomKiller(sb);
+        CustomKiller ck = new CustomKiller(sb);
 
-        if (sk.guess(0, 0)) {
-            return new Sudoku(sk.getBoard());
+        if (ck.guess(0, 0)) {
+            return new Sudoku(ck.getBoard());
         }
         return new Sudoku(sudoku);
     }

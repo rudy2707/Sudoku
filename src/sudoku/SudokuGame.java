@@ -38,8 +38,8 @@ public class SudokuGame {
 
                 // Use the Adapter to solve one item of the sudoku
                 // using SudoKiller
-                SudokuSolver sv = new SudokuSolverAdapter();
-                sudoku = new Sudoku(sv.solverKiller(sudoku));
+                SudokuSolver sk = new SudokuKillerAdapter();
+                sudoku = new Sudoku(sk.solver(sudoku));
                 sudoku.printBoard();
                 System.exit(0);
             }
